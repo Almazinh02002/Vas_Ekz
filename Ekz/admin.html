@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель администратора - Коробки.есть</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Админ-панель | Корочки.есть</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-semibold" href="admin.html">Все заявки</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <span class="nav-link text-light fw-semibold">Администратор</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="auth.html">Выйти</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mb-5">
+            <div class="col">
+                <h2 class="fw-bold" style="color: #7c3aed;">Панель администратора</h2>
+                <p class="text-muted fs-5">Управление заявками пользователей</p>
+            </div>
+        </div>
+
+        <div class="card shadow-lg border-0" style="border-radius: 16px; overflow: hidden;">
+            <div class="card-header text-white text-center py-4" style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%);">
+                <h5 class="mb-0 fw-bold">Все заявки</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead style="background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%); color: white;">
+                            <tr>
+                                <th class="fw-semibold">ID</th>
+                                <th class="fw-semibold">Пользователь</th>
+                                <th class="fw-semibold">Email</th>
+                                <th class="fw-semibold">Курс</th>
+                                <th class="fw-semibold">Дата начала</th>
+                                <th class="fw-semibold">Оплата</th>
+                                <th class="fw-semibold">Статус</th>
+                                <th class="fw-semibold">Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="border-bottom">
+                                <td>1</td>
+                                <td class="fw-semibold">Иванов Иван Иванович</td>
+                                <td>ivanov@mail.ru</td>
+                                <td>Веб-разработка</td>
+                                <td>15.07.2026</td>
+                                <td>Наличными</td>
+                                <td>
+                                    <select class="form-select form-select-sm" onchange="updateStatus(this, 1)" style="border-radius: 8px; border: 2px solid #e9d5ff;">
+                                        <option value="new" selected>Новая</option>
+                                        <option value="inprogress">Идет обучение</option>
+                                        <option value="completed">Обучение завершено</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm text-white" onclick="viewDetails(1)" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border-radius: 8px;">
+                                        Просмотр
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td>2</td>
+                                <td class="fw-semibold">Петрова Мария Сергеевна</td>
+                                <td>petrova@mail.ru</td>
+                                <td>Основы программирования</td>
+                                <td>01.08.2026</td>
+                                <td>Перевод на телефон</td>
+                                <td>
+                                    <select class="form-select form-select-sm" onchange="updateStatus(this, 2)" style="border-radius: 8px; border: 2px solid #e9d5ff;">
+                                        <option value="new" selected>Новая</option>
+                                        <option value="inprogress">Идет обучение</option>
+                                        <option value="completed">Обучение завершено</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm text-white" onclick="viewDetails(2)" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border-radius: 8px;">
+                                        Просмотр
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="border-bottom">
+                                <td>3</td>
+                                <td class="fw-semibold">Сидоров Петр Алексеевич</td>
+                                <td>sidorov@mail.ru</td>
+                                <td>Базы данных</td>
+                                <td>10.06.2026</td>
+                                <td>Наличными</td>
+                                <td>
+                                    <select class="form-select form-select-sm" onchange="updateStatus(this, 3)" style="border-radius: 8px; border: 2px solid #e9d5ff;">
+                                        <option value="new">Новая</option>
+                                        <option value="inprogress">Идет обучение</option>
+                                        <option value="completed" selected>Обучение завершено</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm text-white" onclick="viewDetails(3)" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border-radius: 8px;">
+                                        Просмотр
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td class="fw-semibold">user123</td>
+                                <td>user123@mail.ru</td>
+                                <td>Веб-разработка</td>
+                                <td>15.07.2026</td>
+                                <td>Наличными</td>
+                                <td>
+                                    <select class="form-select form-select-sm" onchange="updateStatus(this, 4)" style="border-radius: 8px; border: 2px solid #e9d5ff;">
+                                        <option value="new">Новая</option>
+                                        <option value="inprogress" selected>Идет обучение</option>
+                                        <option value="completed">Обучение завершено</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm text-white" onclick="viewDetails(4)" style="background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); border-radius: 8px;">
+                                        Просмотр
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer text-muted py-3">
+                Всего заявок: <span class="fw-semibold">4</span>
+            </div>
+        </div>
+    </div>
+
+   
+</body>
+</html>
